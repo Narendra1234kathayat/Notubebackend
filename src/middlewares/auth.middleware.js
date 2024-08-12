@@ -8,11 +8,9 @@ const verifyJWT=asynchandler(async(req,res,next)=>{
        
         
         const token= await req.cookies?.accesstoken || req.header("Authorization")?.replace("Bearer ","");
-        console.log(token);
-       // console.log(req.cookies);
-    //  console.log(" cookies",req.cls);
+      console.log(token)
         if(!token){
-            throw new ApiError(401,"unauthorized requestsss");
+            return res.status(400).json( new ApiError(401,"unauthorized requestsss"));
     
         }
         const decodedtoken=await jwt.verify(token,process.env.ACCESS_TOKEN_SECRET);

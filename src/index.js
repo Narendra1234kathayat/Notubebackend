@@ -33,6 +33,7 @@ import videoRouter from "./Routes/video.routes.js";
 import likeRouter from "./Routes/like.routes.js";
 import subscriptionRouter from "./Routes/subscription.routes.js";
 import commentRouter from "./Routes/comment.routes.js";
+import logRouter from "./Routes/log.routes.js";
 
 // Use routers
 app.use("/api/v1/users", userrouter);
@@ -40,6 +41,7 @@ app.use("/api/v1/videos", videoRouter);
 app.use("/api/v1/likes", likeRouter);
 app.use("/api/v1/comment", commentRouter);
 app.use("/api/v1/subscriptions", subscriptionRouter);
+app.use("/api/v1/log",logRouter)
 
 connectDB()
   .then(() => {
