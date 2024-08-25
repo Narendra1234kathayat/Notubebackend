@@ -1,9 +1,9 @@
 import Router from "express";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
-import { getlog } from "../controllers/log.controller.js";
+import { getLog } from "../controllers/log.controller.js";
 
-const router=Router({})
-router.use(verifyJWT);
-router.route("/getlog").post(getlog);
+const router = Router({});
 
-export default Router;
+router.route("/getlog").get(verifyJWT,getLog);
+
+export default router;

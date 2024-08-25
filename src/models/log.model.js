@@ -11,7 +11,7 @@ const logSchema = new Schema({
   },
   timestamp: {
     type: Date,
-    default: Date.now,
+    default:Date.now,
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,

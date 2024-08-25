@@ -7,10 +7,10 @@ const verifyJWT=asynchandler(async(req,res,next)=>{
     try {
        
         
-        const token= await req.cookies?.accesstoken || req.header("Authorization")?.replace("Bearer ","");
-      console.log(token)
+        const token= await req.cookies?.accesstoken || req.header("Authorization")?.replace("Bearer ","") 
+    
         if(!token){
-            return res.status(400).json( new ApiError(401,"unauthorized requestsss"));
+            return res.status(401).json( new ApiError(401,"unauthorized requestsss"));
     
         }
         const decodedtoken=await jwt.verify(token,process.env.ACCESS_TOKEN_SECRET);
